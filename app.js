@@ -17,6 +17,13 @@ app.post("/Adduser",(req,res)=>{
     res.json({"status":"success"})
 
 })
+app.get("/Viewall",(req,res)=>{
+    bloodmodels.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    )
+})
 
 app.listen(8081,()=>{
     console.log("server started")
