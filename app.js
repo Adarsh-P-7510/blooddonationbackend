@@ -39,6 +39,19 @@ app.post("/Searchuser",(req,res)=>{
     
     
 })
+app.post("/Deleteuser",(req,res)=>{
+    let input = req.body
+    bloodmodels.findByIdAndDelete(input._id).then(
+    (response)=>{
+        res.json({"status":"deleted"})
+    }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+
+})
 app.listen(8081,()=>{
     console.log("server started")
 })
